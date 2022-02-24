@@ -17,7 +17,7 @@ set hlsearch            " highlight search matches
 noremap <leader><space> :nohl<CR> 
 "set cursorline          " highlight current line
 set wildmenu            " visual autocomplete for command menu
-set mouse=a
+"set mouse=a
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
@@ -86,3 +86,40 @@ noremap <CR> o<esc>
 noremap <leader><CR> O<esc>
 noremap <tab> >>
 noremap <S-tab> <<
+autocmd CmdwinEnter * nnoremap <CR> <CR>
+autocmd BufReadPost quickfix nnoremap <CR> <CR>
+
+"add quotes around a word
+noremap qi' ciw'<C-r>"'<Esc>
+noremap qi" ciw"<C-r>""<Esc>
+noremap qi( ciw(<C-r>")<Esc>
+noremap qi{ ciw{<C-r>"}<Esc>
+noremap qi[ ciw[<C-r>"]<Esc>
+noremap qi) ciw(<C-r>")<Esc>
+noremap qi} ciw{<C-r>"}<Esc>
+noremap qi] ciw[<C-r>"]<Esc>
+
+"Delete quotes around a word
+noremap qd elxbhx
+
+noremap r0p "0p 
+noremap r1p "1p 
+noremap r2p "2p 
+noremap r3p "3p 
+noremap r4p "4p 
+noremap r5p "5p 
+noremap r6p "6p 
+noremap r7p "7p 
+noremap r8p "8p 
+noremap r9p "9p 
+
+
+call plug#begin('~/.vim/plugged')
+Plug 'pangloss/vim-javascript'
+
+let g:javascript_plugin_jsdoc = 1
+call plug#end()
+map <silent> <leader>gb :Git blame -w<CR>
+
+"Get getters and setters. Put cursor on private, jgs
+"map jgs mawv/ <CR>"ty/ <CR>wvwh"ny/getters<CR>$a<CR><CR><Esc>xxapublic<Esc>"tpa<Esc>"npbiget<Esc>l~ea()<CR>{<CR><Tab>return<Esc>"npa;<CR>}<Esc>=<CR><Esc>/setters<CR>$a<CR><CR><Esc>xxapublic void<Esc>"npbiset<Esc>l~ea(<Esc>"tpa <Esc>"npa)<CR>{<CR><Tab>this.<Esc>"npa=<Esc>"npa;<CR>}<Esc>=<CR>`ak
