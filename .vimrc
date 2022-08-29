@@ -9,7 +9,7 @@ set tabstop=4           " number of visual spaces per tab
 set softtabstop=4       " number of spaces in tab when editing
 set shiftwidth=4        " number of spaces with << and >>
 set expandtab           " tabs are spaces
-set number              " show line numbers
+set relativenumber      " show line numbers
 set wildmenu            " visual autocomplete for command menu
 set showmatch           " hightlight matching [{()}]
 set incsearch           " search as characters are entered
@@ -54,6 +54,11 @@ function! RunFile()
         silent execute "!javac %"
         execute "!java %:r"
         "execute "!./rn"
+    endif
+    if (extension == 'tex')
+        silent execute "!pdflatex %"
+        silent execute "!open %r.pdf"
+        execute "redraw!"
     endif
 endfunction
 function! ToggleComment()
@@ -112,6 +117,9 @@ noremap r6p "6p
 noremap r7p "7p 
 noremap r8p "8p 
 noremap r9p "9p 
+noremap tg gT
+
+noremap ZS :w<CR>
 
 
 call plug#begin('~/.vim/plugged')
@@ -120,6 +128,12 @@ Plug 'pangloss/vim-javascript'
 let g:javascript_plugin_jsdoc = 1
 call plug#end()
 map <silent> <leader>gb :Git blame -w<CR>
+
+noremap clp oconsole.log("<Esc>pa");<CR>console.log(<Esc>pa);<CR><Esc> 
+
+
+
+
 
 "Get getters and setters. Put cursor on private, jgs
 "map jgs mawv/ <CR>"ty/ <CR>wvwh"ny/getters<CR>$a<CR><CR><Esc>xxapublic<Esc>"tpa<Esc>"npbiget<Esc>l~ea()<CR>{<CR><Tab>return<Esc>"npa;<CR>}<Esc>=<CR><Esc>/setters<CR>$a<CR><CR><Esc>xxapublic void<Esc>"npbiset<Esc>l~ea(<Esc>"tpa <Esc>"npa)<CR>{<CR><Tab>this.<Esc>"npa=<Esc>"npa;<CR>}<Esc>=<CR>`ak
