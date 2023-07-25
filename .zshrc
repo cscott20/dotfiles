@@ -1,5 +1,5 @@
 # Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 PROMPT='%F{green}%n%F%F{white}:%F%F{blue}%~%F%F{white} $ '
 #RPROMPT='%F{green}%*%F'
 
@@ -34,10 +34,6 @@ alias brewr="arch -x86_64 /usr/local/bin/brew $@"
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
 
 alias ibrew="arch -x86_64 /usr/local/bin/brew $@"
 
@@ -87,4 +83,4 @@ eval "$(fnm env --use-on-cd)"
 export PATH="/usr/local/opt/node@14/bin:$PATH"
 
 # Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

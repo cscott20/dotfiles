@@ -9,11 +9,12 @@ set tabstop=4           " number of visual spaces per tab
 set softtabstop=4       " number of spaces in tab when editing
 set shiftwidth=4        " number of spaces with << and >>
 set expandtab           " tabs are spaces
-set relativenumber      " show line numbers
+set number
 set wildmenu            " visual autocomplete for command menu
 set showmatch           " hightlight matching [{()}]
-set incsearch           " search as characters are entered
 set hlsearch            " highlight search matches
+"treat _ as word separators
+set iskeyword-=_
 noremap <leader><space> :nohl<CR> 
 "set cursorline          " highlight current line
 set wildmenu            " visual autocomplete for command menu
@@ -130,7 +131,6 @@ call plug#end()
 map <silent> <leader>gb :Git blame -w<CR>
 
 noremap clp oconsole.log("<Esc>pa");<CR>console.log(<Esc>pa);<CR><Esc> 
-
 
 
 
