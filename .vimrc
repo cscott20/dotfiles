@@ -108,6 +108,7 @@ noremap qi] ciw[<C-r>"]<Esc>
 "Delete quotes around a word
 noremap qd elxbhx
 
+" print from specified register
 noremap r0p "0p 
 noremap r1p "1p 
 noremap r2p "2p 
@@ -118,8 +119,17 @@ noremap r6p "6p
 noremap r7p "7p 
 noremap r8p "8p 
 noremap r9p "9p 
+
+
+" back tab
 noremap tg gT
 
+" Preface commands with gf (gone forever) and it won't save to register.
+" gfdd, delete line and don't save to register
+noremap gf "_
+
+
+" Save, in the style of ZZ, ZQ
 noremap ZS :w<CR>
 
 
@@ -128,6 +138,7 @@ Plug 'pangloss/vim-javascript'
 
 let g:javascript_plugin_jsdoc = 1
 call plug#end()
+
 map <silent> <leader>gb :Git blame -w<CR>
 
 noremap clp oconsole.log("<Esc>pa");<CR>console.log(<Esc>pa);<CR><Esc> 
